@@ -184,7 +184,16 @@ h3 { font-size: 23px; line-height: 1.35; font-weight: 550; letter-spacing: -.6px
 .attachment-empty, .project-attachments figcaption { color: var(--muted); font-size: 14px; }
 .project-attachments figure { margin: 24px 0; }
 .project-attachments img, .project-attachments video { display: block; width: 100%; height: auto; border-radius: 10px; }
+.project-attachments img.detail-photo { width: 88%; max-width: 640px; margin-inline: auto; }
 .project-attachments figcaption { margin-top: 8px; }
+.carousel-frame { display: grid; grid-template-columns: 40px minmax(0, 1fr) 40px; align-items: center; gap: 12px; }
+.carousel-frame figure { grid-column: 2; grid-row: 1; min-width: 0; }
+.carousel-button { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: #fff; color: var(--ink); font-size: 22px; line-height: 1; cursor: pointer; }
+.carousel-button:hover { border-color: var(--accent); color: var(--accent); }
+.carousel-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.carousel-previous { grid-column: 1; grid-row: 1; }
+.carousel-next { grid-column: 3; grid-row: 1; }
+.carousel-status { margin: 12px 0 0; color: var(--muted); font-size: 13px; text-align: center; }
 .attachment-links { padding-left: 20px; }
 .attachment-links li { margin-block: 10px; }
 
@@ -198,6 +207,8 @@ h3 { font-size: 23px; line-height: 1.35; font-weight: 550; letter-spacing: -.6px
 .timeline-card-link:hover { text-decoration: underline; }
 .detail-organization { font-size: 20px; }
 .detail-section { border-top: 1px solid var(--line); padding-top: 32px; }
+.detail-list { padding-left: 20px; }
+.detail-list li + li { margin-top: 14px; }
 .related-projects { display: grid; gap: 24px; margin-top: 24px; }
 .related-projects h3 { margin-top: 0; }
 .project-context { border-top: 1px solid var(--line); padding-block: 16px; color: var(--muted); font-size: 14px; }
