@@ -1,59 +1,208 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grace Kim</title>
+  <meta name="description" content="Grace Kim — Mechatronics Engineering at the University of Waterloo. Selected work in robotics and control systems.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>Grace Kim</h1>
-    <p>Mechatronics Engineering @ University of Waterloo</p>
-
-    <nav>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#">Grace Kim<span aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#about">About</a>
-      <a href="#">Resume</a>
-      <a href="https://github.com/YOURUSERNAME">GitHub</a>
+      <!-- Add your résumé PDF to assets/, then uncomment this link.
+      <a href="assets/resume.pdf">Résumé</a>
+      -->
+      <a href="https://github.com/g72kim">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
-  <main>
+  <main id="main">
+    <section class="intro" aria-labelledby="intro-title">
+      <p class="eyebrow">Mechatronics Engineering · University of Waterloo</p>
+      <h1 id="intro-title">Hi, I’m Grace.</h1>
+      <p class="intro-description">Exploring robotics and control systems through hands-on engineering. Here’s a selection of my work.</p>
+      <a class="text-link" href="#projects">Explore my projects <span aria-hidden="true">↓</span></a>
+    </section>
+
+    <section id="experience" class="experience" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <h2 id="experience-title">Experience &amp; education</h2>
+        <span class="section-note">Work &amp; study</span>
+      </div>
+      <p class="timeline-hint" id="timeline-help">Education above · Co-ops below. Scroll sideways to explore on smaller screens.</p>
+      <div class="timeline-scroll" tabindex="0" role="region" aria-label="Education and co-op timeline, 2023 to 2028" aria-describedby="timeline-help">
+        <div class="timeline">
+          <div class="timeline-school waterloo">
+            <p class="eyebrow">Education · Sept. 2023 – Apr. 2028</p>
+            <h3>University of Waterloo</h3>
+            <p>BASc in Mechatronics Engineering</p>
+            <p class="section-note">Waterloo, ON · GPA: 91% (3.92/4.00)<br>4× Dean’s Honours List</p>
+          </div>
+          <div class="timeline-school epfl">
+            <p class="eyebrow">Exchange · Feb. – May 2026</p>
+            <h3>EPFL</h3>
+            <p>Mechanical Engineering</p>
+            <p class="section-note">Lausanne, Switzerland</p>
+          </div>
+          <div class="timeline-axis" aria-label="Years">
+            <span>2023</span><span>2024</span><span>2025</span><span>2026</span><span>2027</span><span>2028</span>
+          </div>
+          <!-- Co-op cards are grouped by year. Copy a card inside its year's list. -->
+          <ol class="timeline-jobs jobs-2024" aria-label="2024 co-ops">
+            <li class="timeline-card">
+              <p class="experience-date">May – Aug. 2024</p>
+              <h3>Process Engineering Intern</h3>
+              <p class="experience-company">American Biaxis Inc.</p>
+              <p class="section-note">Winnipeg, MB</p>
+            </li>
+          </ol>
+          <ol class="timeline-jobs jobs-2025" aria-label="2025 co-ops">
+            <li class="timeline-card">
+              <p class="experience-date">Jan. – Apr. 2025</p>
+              <h3>Systems Analyst Intern</h3>
+              <p class="experience-company">Mackenzie Investments</p>
+              <p class="section-note">Toronto, ON</p>
+            </li>
+            <li class="timeline-card">
+              <p class="experience-date">May – Dec. 2025</p>
+              <h3>Undergraduate Research Assistant</h3>
+              <p class="experience-company">Neuromechanics and Assistive Robotics Lab, University of Waterloo</p>
+              <p class="section-note">Waterloo, ON</p>
+            </li>
+          </ol>
+          <ol class="timeline-jobs jobs-2026" aria-label="2026 co-ops">
+            <li class="timeline-card">
+              <p class="experience-date">Mar. – Aug. 2026</p>
+              <h3>Robotics Research Intern</h3>
+              <p class="experience-company">Learning Algorithms and Systems Laboratory (LASA), EPFL</p>
+              <p class="section-note">Lausanne, Switzerland</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
     <section id="projects">
-      <h2>Selected Projects</h2>
+      <div class="section-heading">
+        <h2>Selected projects</h2>
+        <span class="section-note">Robotics, electronics &amp; software</span>
+      </div>
 
-      <article>
-        <h3>Dexterous Robotic Hand Control</h3>
+      <div class="project-grid">
+      <!-- PROJECT: Copy one complete <article>...</article> block to add a project.
+           Optional photo: <img class="project-image" src="assets/hand.jpg" alt="Describe what your project photo shows">
+           Place the photo immediately inside the article, before project-content. -->
+      <article class="project-card">
+        <div class="project-content">
+        <p class="eyebrow">01 / Robotics &amp; control</p>
+        <h3><a class="project-card-link" href="projects/robotic-hand.html">Dexterous Robotic Hand Control</a></h3>
         <p>
           EPFL Learning Algorithms and Systems Laboratory — control,
           force estimation, system identification, and experimental testing
           on a 20-DOF robotic hand.
         </p>
+        <ul class="tags" aria-label="Project topics">
+          <li>Control systems</li><li>Force estimation</li><li>System identification</li>
+        </ul><span class="project-card-cta" aria-hidden="true">View project →</span>
+        </div>
       </article>
 
-      <article>
-        <h3>Multi-Robot Workbench</h3>
+      <article class="project-card">
+        <div class="project-content">
+        <p class="eyebrow">02 / Robotics infrastructure</p>
+        <h3><a class="project-card-link" href="projects/multi-robot-workbench.html">Multi-Robot Workbench</a></h3>
         <p>
           Developed and tested a robotics workbench involving KUKA manipulators,
           ROS, Gazebo, Docker, and OptiTrack motion capture.
         </p>
+        <ul class="tags" aria-label="Project technologies">
+          <li>ROS</li><li>Gazebo</li><li>Docker</li><li>OptiTrack</li>
+        </ul><span class="project-card-cta" aria-hidden="true">View project →</span>
+        </div>
       </article>
+      <article class="project-card">
+        <div class="project-content">
+          <p class="eyebrow">03 / Power electronics</p>
+          <h3><a class="project-card-link" href="projects/dab-converter.html">Dual Active Bridge Converter</a></h3>
+          <p class="project-date">Feb. 2026 – May 2026</p>
+          <p>Designed a bidirectional DC–DC converter, including transformer design, component selection, and analytical modeling. Built and tested the hardware with Altium PCB design, soldering, and PLECS simulation to validate performance across operating conditions.</p>
+          <ul class="tags" aria-label="Project technologies">
+            <li>PLECS</li><li>Altium Designer</li><li>Power electronics</li>
+          </ul><span class="project-card-cta" aria-hidden="true">View project →</span>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-content">
+          <p class="eyebrow">04 / Signal processing</p>
+          <h3><a class="project-card-link" href="projects/cochlear-implant.html">Cochlear Implant Signal Processing</a></h3>
+          <p class="project-date">Sept. 2025 – Dec. 2025</p>
+          <p>Built a MATLAB audio processing pipeline using multi-channel bandpass filtering, full-wave rectification, and low-pass envelope extraction to decompose and analyze speech signals.</p>
+          <ul class="tags" aria-label="Project technologies">
+            <li>MATLAB</li><li>Digital signal processing</li>
+          </ul><span class="project-card-cta" aria-hidden="true">View project →</span>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-content">
+          <p class="eyebrow">05 / Neuromechanics research</p>
+          <h3><a class="project-card-link" href="projects/gait-prediction.html">Gait Trajectory Prediction</a></h3>
+          <p class="project-date">May 2025 – Dec. 2025</p>
+          <p>Undergraduate research at Waterloo’s Neuromechanics and Assistive Robotics Lab. Collected and preprocessed gait data from 10 participants using motion capture, IMUs, EMG sensors, and force plates. Trained a hybrid Conv2D-BiLSTM model to predict joint angle trajectories one gait cycle ahead.</p>
+          <ul class="tags" aria-label="Project technologies">
+            <li>Keras / TensorFlow</li><li>Time-series modeling</li><li>Motion capture</li>
+          </ul><span class="project-card-cta" aria-hidden="true">View project →</span>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-content">
+          <p class="eyebrow">06 / Analog electronics</p>
+          <h3><a class="project-card-link" href="projects/microphone-amplifier.html">Single-Supply Microphone Amplifier</a></h3>
+          <p>A circuit demonstration of a microphone amplifier operating from a single power supply.</p>
+          <!-- Add circuit details, measurements, and a demo link when available. -->
+          <ul class="tags" aria-label="Project topics">
+            <li>Analog circuits</li><li>Audio amplification</li>
+          </ul><span class="project-card-cta" aria-hidden="true">View project →</span>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-content">
+          <p class="eyebrow">07 / Software tools</p>
+          <h3><a class="project-card-link" href="projects/financial-planner.html">Excel VBA Financial Planner</a></h3>
+          <p>A financial planning tool built in Microsoft Excel with VBA.</p>
+          <!-- Add the planner's features, screenshots, and a file or demo link when available. -->
+          <ul class="tags" aria-label="Project technologies">
+            <li>Microsoft Excel</li><li>VBA</li>
+          </ul><span class="project-card-cta" aria-hidden="true">View project →</span>
+        </div>
+      </article>
+      </div>
 
     </section>
 
-    <section id="about">
+    <section id="about" class="about">
       <h2>About</h2>
 
       <p>
-        ...
+        I’m Grace, a Mechatronics Engineering student at the University of Waterloo.
+        My work includes robotic hand control and multi-robot systems, connecting
+        software with physical hardware.
       </p>
     </section>
 
   </main>
+  <footer class="site-footer">
+    <span>Grace Kim</span>
+    <a href="https://github.com/g72kim">Find me on GitHub <span aria-hidden="true">↗</span></a>
+  </footer>
 
 </body>
 
