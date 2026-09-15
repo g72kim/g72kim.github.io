@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   color-scheme: light;
   --paper: #faf9f6;
   --ink: #262b29;
@@ -82,30 +82,92 @@ h3 { font-size: 23px; line-height: 1.35; font-weight: 550; letter-spacing: -.6px
   html { scroll-behavior: auto; }
 }
 
-/* Year columns keep education above and co-op cards below the same axis. */
+/* Wider 2025 column gives each work term its own position.
+   This is a year/term layout, not a month-proportional scale. */
 .timeline-hint { color: var(--muted); font-size: 13px; margin: -12px 0 24px; }
-.timeline-scroll { overflow-x: auto; padding: 6px 2px 20px; }
-.timeline-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-.timeline { display: grid; grid-template-columns: repeat(6, minmax(166px, 1fr)); grid-template-rows: auto 64px auto; min-width: 1000px; padding: 0 8px; }
-.timeline-school { position: relative; align-self: end; margin: 0 16px 0 0; padding: 20px; background: #eef2ec; border: 1px solid #d8e1d5; border-radius: 10px; }
-.timeline-school::after { content: ""; position: absolute; left: 20px; bottom: -32px; height: 31px; width: 1px; background: var(--accent); }
-.waterloo { grid-column: 1 / 4; grid-row: 1; }
-.epfl { grid-column: 4 / 6; grid-row: 1; }
+.timeline-mobile-hint { display: none; }
+.timeline-scroll { padding: 6px; }
+.timeline {
+  display: grid;
+  grid-template-columns: .65fr 1fr 1fr 1fr 1fr .4fr .4fr;
+  grid-template-rows: auto auto 56px auto;
+  gap: 16px 12px;
+  position: relative;
+}
+.timeline-school { position: relative; padding: 20px; background: #eef2ec; border: 1px solid #d8e1d5; border-radius: 10px; min-width: 0; }
+.waterloo { grid-column: 1 / -1; grid-row: 1; border-top: 4px solid var(--accent); }
+.waterloo::before, .waterloo::after { content: ""; position: absolute; top: -8px; width: 2px; height: 12px; background: var(--accent); }
+.waterloo::before { left: 0; }
+.waterloo::after { right: 0; }
+.epfl { grid-column: 5 / -1; grid-row: 2; }
 .timeline h3 { font-size: 17px; line-height: 1.4; margin: 8px 0; letter-spacing: -.3px; }
 .timeline p { margin: 6px 0 0; }
 .timeline .eyebrow { font-size: 10px; margin-top: 0; }
-.timeline-axis { grid-column: 1 / -1; grid-row: 2; display: grid; grid-template-columns: repeat(6, 1fr); align-items: center; position: relative; }
-.timeline-axis::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--accent); }
-.timeline-axis span { position: relative; justify-self: start; background: var(--paper); padding: 0 8px; margin-left: 3px; font-size: 12px; font-weight: 600; color: var(--accent); }
-.timeline-jobs { position: relative; grid-row: 3; list-style: none; padding: 0; margin: 0 12px 0 0; display: flex; flex-direction: column; gap: 16px; align-self: start; }
-.timeline-jobs::before { content: ""; position: absolute; left: 20px; top: -22px; height: 22px; width: 1px; background: var(--accent); }
-.jobs-2024 { grid-column: 2; }
-.jobs-2025 { grid-column: 3; }
-.jobs-2026 { grid-column: 4; }
-.timeline-card { padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: #fff; overflow-wrap: anywhere; }
+.timeline-axis { grid-column: 1 / -1; grid-row: 3; display: grid; grid-template-columns: .65fr 1fr 2fr 1fr .4fr .4fr; gap: 12px; align-items: center; position: relative; }
+.timeline-axis::before { content: ""; position: absolute; inset: 50% 0 auto; height: 1px; background: var(--accent); }
+.timeline-axis span { position: relative; justify-self: start; background: var(--paper); padding: 0 4px; font-size: 12px; font-weight: 600; color: var(--accent); }
+.timeline-jobs { display: contents; }
+.timeline-card { position: relative; grid-row: 4; align-self: start; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: #fff; min-width: 0; overflow-wrap: anywhere; list-style: none; }
+.timeline-card::before { content: ""; position: absolute; left: 20px; top: -45px; height: 44px; width: 1px; background: var(--accent); }
+.jobs-2024 .timeline-card { grid-column: 2; }
+.jobs-2025 .timeline-card:first-child { grid-column: 3; }
+.jobs-2025 .timeline-card:last-child { grid-column: 4; }
+.jobs-2026 .timeline-card { grid-column: 5 / -1; }
 .timeline-card .experience-date { font-size: 11px; }
 .timeline-card .experience-company { font-size: 13px; }
 .timeline-card .section-note { font-size: 12px; }
+.degree-end { display: none; }
+.education-connector { position: absolute; left: 20px; bottom: -45px; width: 1px; height: 44px; background: var(--accent); pointer-events: none; }
+
+@media (min-width: 761px) {
+  .timeline { grid-template-rows: auto 56px auto; }
+  .waterloo { padding-right: 38%; }
+  .epfl {
+    grid-row: 1;
+    align-self: stretch;
+    margin: 18px 12px 12px 0;
+    z-index: 2;
+    background: #f8faf6;
+    border-color: #b9cbb5;
+  }
+  .timeline-axis { grid-row: 2; }
+  .timeline-card { grid-row: 3; }
+  /* EPFL is inset 12px above the bottom of the shared education row. */
+  .epfl .education-connector { bottom: -57px; height: 56px; }
+}
+
+@media (max-width: 760px) {
+  .timeline-desktop-hint { display: none; }
+  .timeline-mobile-hint { display: inline; }
+  .timeline { grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); grid-template-rows: repeat(12, auto); gap: 16px 8px; }
+  /* The centre line marks time; the left rail marks the full degree. */
+  .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--accent); }
+  .timeline::after { content: ""; position: absolute; top: 42px; bottom: 0; left: 0; width: 3px; background: var(--accent); }
+  .timeline-axis { display: contents; }
+  .timeline-axis::before { display: none; }
+  .timeline-axis span { grid-column: 2; justify-self: center; align-self: start; }
+  .timeline-axis span:nth-child(1) { grid-row: 1; }
+  .timeline-axis span:nth-child(2) { grid-row: 3; }
+  .timeline-axis span:nth-child(3) { grid-row: 5; }
+  .timeline-axis span:nth-child(4) { grid-row: 8; }
+  .timeline-axis span:nth-child(5) { grid-row: 10; }
+  .timeline-axis span:nth-child(6) { grid-row: 11; }
+  .timeline-school { padding: 12px; margin-left: 8px; align-self: start; }
+  .education-connector { left: auto; right: -29px; top: 20px; bottom: auto; width: 28px; height: 1px; }
+  .waterloo { grid-column: 1; grid-row: 2; border-top-width: 1px; }
+  .waterloo::before, .waterloo::after { display: none; }
+  .epfl { grid-column: 1; grid-row: 9; }
+  .timeline-card { padding: 12px; }
+  .jobs-2024 .timeline-card { grid-column: 3; grid-row: 4; }
+  .jobs-2025 .timeline-card:first-child { grid-column: 3; grid-row: 6; }
+  .jobs-2025 .timeline-card:last-child { grid-column: 3; grid-row: 7; }
+  .jobs-2026 .timeline-card { grid-column: 3; grid-row: 9; }
+  .timeline-card::before { left: -29px; top: 20px; height: 1px; width: 28px; }
+  .timeline h3 { font-size: 15px; }
+  .timeline-school > p:not(.eyebrow) { font-size: 12px; }
+  .timeline-school, .timeline-card { overflow-wrap: break-word; }
+  .timeline .degree-end { display: block; grid-column: 1; grid-row: 12; padding: 8px 12px; margin: 0 0 0 8px; border-bottom: 3px solid var(--accent); font-size: 12px; color: var(--accent); }
+}
 
 /* A real title link covers the card, supporting mouse and keyboard navigation. */
 .project-card { position: relative; }
@@ -125,3 +187,18 @@ h3 { font-size: 23px; line-height: 1.35; font-weight: 550; letter-spacing: -.6px
 .project-attachments figcaption { margin-top: 8px; }
 .attachment-links { padding-left: 20px; }
 .attachment-links li { margin-block: 10px; }
+
+/* Timeline entries use the same full-card navigation as projects. */
+.timeline-card { position: relative; }
+.timeline-card-link { text-decoration: none; }
+.timeline-card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 10px; }
+.timeline-card:hover, .timeline-school:hover { border-color: var(--accent); }
+.timeline-card:focus-within, .timeline-school:focus-within { outline: 2px solid var(--accent); outline-offset: 4px; }
+.timeline-card-link { color: var(--accent); }
+.timeline-card-link:hover { text-decoration: underline; }
+.detail-organization { font-size: 20px; }
+.detail-section { border-top: 1px solid var(--line); padding-top: 32px; }
+.related-projects { display: grid; gap: 24px; margin-top: 24px; }
+.related-projects h3 { margin-top: 0; }
+.project-context { border-top: 1px solid var(--line); padding-block: 16px; color: var(--muted); font-size: 14px; }
+.project-context a { color: var(--accent); }
