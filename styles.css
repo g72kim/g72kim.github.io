@@ -177,10 +177,10 @@ h3 { font-size: 23px; line-height: 1.35; font-weight: 550; letter-spacing: -.6px
 .project-card:focus-within { outline: 2px solid var(--accent); outline-offset: 4px; }
 .project-card-cta { display: block; margin-top: 24px; color: var(--accent); font-size: 14px; font-weight: 600; }
 .project-detail { max-width: 780px; padding-block: 48px 80px; }
-.project-overview { padding-block: 36px 48px; }
+.project-overview { padding-block: 36px 36px; }
 .project-overview h1 { font-size: clamp(32px, 5vw, 54px); letter-spacing: -.04em; overflow-wrap: anywhere; }
 .project-overview > p:not(.eyebrow) { color: var(--muted); }
-.project-attachments { border-top: 1px solid var(--line); padding-top: 32px; }
+.project-attachments { border-top: 1px solid var(--line); padding-top: 22px; }
 .attachment-empty, .project-attachments figcaption { color: var(--muted); font-size: 14px; }
 .project-attachments figure { margin: 24px 0; }
 .project-attachments img, .project-attachments video { display: block; width: 100%; height: auto; border-radius: 10px; }
