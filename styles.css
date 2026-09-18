@@ -139,10 +139,10 @@ h3 { font-size: 23px; line-height: 1.35; font-weight: 550; letter-spacing: -.6px
 @media (max-width: 760px) {
   .timeline-desktop-hint { display: none; }
   .timeline-mobile-hint { display: inline; }
-  .timeline { grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); grid-template-rows: repeat(12, auto); gap: 16px 8px; }
-  /* The centre line marks time; the left rail marks the full degree. */
+  .timeline { grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); grid-template-rows: repeat(12, auto); gap: 16px 8px; isolation: isolate; }
+  /* The green education column spans Waterloo's full degree through April 2028. */
   .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--accent); }
-  .timeline::after { content: ""; position: absolute; top: 42px; bottom: 0; left: 0; width: 3px; background: var(--accent); }
+  .timeline::after { content: ""; grid-column: 1; grid-row: 2 / 13; background: #eef2ec; border: 1px solid #d8e1d5; border-left: 3px solid var(--accent); border-radius: 10px; z-index: -1; pointer-events: none; }
   .timeline-axis { display: contents; }
   .timeline-axis::before { display: none; }
   .timeline-axis span { grid-column: 2; justify-self: center; align-self: start; }
@@ -156,7 +156,7 @@ h3 { font-size: 23px; line-height: 1.35; font-weight: 550; letter-spacing: -.6px
   .education-connector { left: auto; right: -29px; top: 20px; bottom: auto; width: 28px; height: 1px; }
   .waterloo { grid-column: 1; grid-row: 2; border-top-width: 1px; }
   .waterloo::before, .waterloo::after { display: none; }
-  .epfl { grid-column: 1; grid-row: 9; }
+  .epfl { grid-column: 1; grid-row: 9; margin-right: 8px; background: #f8faf6; border-color: #b9cbb5; }
   .timeline-card { padding: 12px; }
   .jobs-2024 .timeline-card { grid-column: 3; grid-row: 4; }
   .jobs-2025 .timeline-card:first-child { grid-column: 3; grid-row: 6; }
